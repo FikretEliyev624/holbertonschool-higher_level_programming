@@ -11,7 +11,7 @@ def list_division(my_list_1, my_list_2, list_length):
             if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
                 raise TypeError("wrong type")
 
-            result = a / b  # bölmə cəhdi
+            result = a / b
 
         except TypeError:
             print("wrong type")
@@ -26,4 +26,3 @@ def list_division(my_list_1, my_list_2, list_length):
             new_list.append(result)
 
     return new_list
-
