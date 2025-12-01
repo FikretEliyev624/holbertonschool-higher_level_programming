@@ -5,7 +5,7 @@
 
 
 class Rectangle:
-    """Defines a rectangle with width, height, number_of_instances, and print_symbol"""
+    """Defines an empty rectangle class"""
 
     number_of_instances = 0
     print_symbol = "#"
@@ -62,7 +62,7 @@ class Rectangle:
         return "\n".join([symbol * self.width for _ in range(self.height)])
 
     def __repr__(self):
-        """Return string representation to recreate a new instance using eval()"""
+        """Return string representation"""
         return "Rectangle({}, {})".format(self.width, self.height)
 
     def __del__(self):
