@@ -1,12 +1,10 @@
 #!/usr/bin/python3
-"""
-Function that checks if an object is an instance of, 
-or inherits from, a specified class.
-"""
+is_kind_of_class = __import__('3-is_kind_of_class').is_kind_of_class
 
-
-def is_kind_of_class(obj, a_class):
-    """
-    Return True if obj is an instance of a_class or its subclass, otherwise False.
-    """
-    return isinstance(obj, a_class)
+a = 1
+if is_kind_of_class(a, int):
+    print("{} comes from {}".format(a, int.__name__))
+if is_kind_of_class(a, float):
+    print("{} comes from {}".format(a, float.__name__))
+if is_kind_of_class(a, object):
+    print("{} comes from {}".format(a, object.__name__))
