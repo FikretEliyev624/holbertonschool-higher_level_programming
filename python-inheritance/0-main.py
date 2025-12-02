@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-lookup = __import__("0-lookup").lookup
+
+lookup = __import__('0-lookup').lookup
 
 
 class MyClass1(object):
@@ -16,3 +17,5 @@ class MyClass2(object):
 print(lookup(MyClass1))
 print(lookup(MyClass2))
 print(lookup(int))
+
+
