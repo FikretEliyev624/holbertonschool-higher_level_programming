@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module 7-base_geometry.py: BaseGeometry class."""
 
+
 class BaseGeometry:
     """Base class for geometry objects."""
 
