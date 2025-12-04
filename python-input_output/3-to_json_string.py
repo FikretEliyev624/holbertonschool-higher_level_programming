@@ -1,14 +1,19 @@
 #!/usr/bin/python3
 import json
+
 """
-Docstring for 3-to_json_string
+Module that converts a Python object to its JSON representation.
 """
 
 
 def to_json_string(my_obj):
     """
-    Docstring for to_json_string
+    Return the JSON representation of an object as a string.
 
-    :param my_obj: Description
+    Args:
+        my_obj: Any serializable Python object (list, dict, str, int, etc.)
+
+    Returns:
+        str: JSON string representation of the object.
     """
     return json.dumps(my_obj)
