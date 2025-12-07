@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-# Import libs
+"""
+Docstring for 7-add_item
+"""
 import sys
 from pathlib import Path
 
