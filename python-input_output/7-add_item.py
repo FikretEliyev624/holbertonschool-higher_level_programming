@@ -1,13 +1,15 @@
 #!/usr/bin/python3
+# Import libs
 import sys
 from pathlib import Path
+
 # Import custom functions to save and load JSON files
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
+load_from_json_file = __import__("6-load_from_json_file").load_from_json_file
 
 filename = "add_item.json"
 
-# Check if the JSON file exists; if yes, load its content, otherwise initialize an empty list
+# Check if the JSON file exists
 if Path(filename).exists():
     items = load_from_json_file(filename)
 else:
