@@ -12,9 +12,9 @@ if __name__ == "__main__":
     email = sys.argv[2]
 
     # encode the POST data
-    data = urllib.parse.urlencode({'email': email}).encode('utf-8')
+    data = urllib.parse.urlencode({"email": email}).encode("utf-8")
 
     # send the request
     with urllib.request.urlopen(url, data=data) as response:
         body = response.read()
-        print(body.decode('utf-8'))
+        print(body.decode("utf-8"))
