@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-"""
-Docstring for 1-hbtn_header
-"""
+"""Displays the X-Request-Id header value from a given URL."""
+
 import urllib.request
 import sys
 
