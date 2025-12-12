@@ -1,65 +1,59 @@
 import os
+""" fdasdafsdf  fsad """
 
 
 def generate_invitations(template, attendees):
     """
-    This module generates personalized invitation files
-    from a template and a list of attendees.
+    sfdadfsafdfsd
+    sdfsadfsd
     """
 
-    # type checking (Input Validation)
-    # it must ensure template is a string and attendees is a list of dicts.
+    # ---------------------------
+    # 1. Validate input types
+    # ---------------------------
     if not isinstance(template, str):
-        print("Error: Template is not a string.")
+        print("Error: Template must be a string.")
         return
 
-    if not isinstance(attendees, list) or not all(
-        isinstance(i, dict) for i in attendees
-    ):
-        print("Error: Attendees provided is not a list of dictionaries.")
+    if not isinstance(attendees, list) or not all(isinstance(a, dict) for a in attendees):
+        print("Error: Attendees must be a list of dictionaries.")
         return
 
-    # empty input checks
-    # check if the template string is empty (or just whitespace)
-    if not template.strip():
+    # ---------------------------
+    # 2. Handle empty inputs
+    # ---------------------------
+    if template.strip() == "":
         print("Template is empty, no output files generated.")
         return
 
-    # check if the list has zero items
-    if not attendees:
+    if len(attendees) == 0:
         print("No data provided, no output files generated.")
         return
 
-    # process Each Attendee
-    # enumerate(attendees, 1) gives us the index starting at 1 (1, 2, 3...)
-    for index, attendee in enumerate(attendees, 1):
+    # ---------------------------
+    # 3. Process each attendee
+    # ---------------------------
+    for index, attendee in enumerate(attendees, start=1):
 
-        # it starts with the raw template for this specific person
-        content = template
+        # Get values or replace missing ones with "N/A"
+        name = attendee.get("name") or "N/A"
+        event_title = attendee.get("event_title") or "N/A"
+        event_date = attendee.get("event_date") or "N/A"
+        event_location = attendee.get("event_location") or "N/A"
 
-        # it defines the placeholders we expect to find
-        placeholders = ["name", "event_title", "event_date", "event_location"]
+        # Fill template
+        processed_template = template.replace("{name}", name)
+        processed_template = processed_template.replace("{event_title}", event_title)
+        processed_template = processed_template.replace("{event_date}", event_date)
+        processed_template = processed_template.replace("{event_location}", event_location)
 
-        for key in placeholders:
-            # get the value from the dictionary.
-            # .get(key) returns None if the key is missing entirely.
-            value = attendee.get(key)
-
-            # requirement: if value is missing (None)
-            # or empty, replace with "N/A"
-            if value is None or value == "":
-                value = "N/A"
-
-            # replace the placeholder {key} with the actual string value
-            # example: "{name}" becomes "Alice"
-            content = content.replace("{" + key + "}", str(value))
-
-        # write to file
-        # construct the filename: output_1.txt, output_2.txt, etc.
+        # Output file name
         filename = f"output_{index}.txt"
 
         try:
-            with open(filename, "w") as file:
-                file.write(content)
+            with open(filename, "w") as outfile:
+                outfile.write(processed_template)
+
         except Exception as e:
             print(f"Error writing file {filename}: {e}")
+            continue
